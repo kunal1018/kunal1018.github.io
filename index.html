@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kunal Gandhi's Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212;
+            color: #fff;
+            padding: 20px;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-radius: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ff00ff;
+        }
+
+        section, main {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: rgba(26, 26, 26, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 60px;
+        }
+
+        section:hover, main:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+        }
+
+        .greeting {
+            text-align: center;
+            padding: 100px 20px 50px;
+            background-color: rgba(26, 26, 26, 0.3);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            animation: fadeIn 2s;
+            margin-bottom: 60px;
+            border-radius: 10px;
+        }
+
+        .greeting h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            overflow: hidden;
+            border-right: .15em solid white;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation: typing 3.5s steps(40, end);
+        }
+
+        .greeting p {
+            font-size: 1.2em;
+            color: #aaa;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .hero {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 50px 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-top: 60px;
+            animation: fadeIn 2s;
+            border-radius: 10px;
+        }
+
+        .hero img {
+            border-radius: 50%;
+            max-width: 150px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .hero img:hover {
+            transform: scale(1.1);
+        }
+
+        .hero h1 {
+            margin: 10px 0;
+            color: #ff00ff;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-bottom: 40px;
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            margin-bottom: 60px;
+        }
+
+        .project-card {
+            background: rgba(26, 26, 26, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+        }
+
+        .project-card img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        main {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+            margin-bottom: 60px;
+            border-radius: 10px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            font-weight: bold;
+            border: 2px solid #fff;
+            padding: 10px;
+            margin: 20px 0;
+            background: linear-gradient(to right, #ff00ff, #ff66cc, #ffff00, #ff9900);
+            -webkit-background-clip: text;
+            color: transparent;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        h2.credentials-title {
+            background: none;
+            color: #ff00ff;
+            font-size: 1em;
+            transition: color 0.3s ease;
+        }
+
+        h2.credentials-title a {
+            color: inherit;
+            text-decoration: none;
+            background: linear-gradient(to right, #ff00ff, #ff66cc, #ffff00, #ff9900);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        h2.credentials-title a:hover {
+            color: #ff66cc;
+        }
+
+        .experience-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .experience-card {
+            background: rgba(26, 26, 26, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            flex: 1;
+            min-width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .experience-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+        }
+
+        .experience-card h2 {
+            font-size: 1.5em;
+            color: #ff00ff;
+            margin-bottom: 10px;
+        }
+
+        .experience-card p {
+            font-size: 1em;
+            color: #aaa;
+            margin-bottom: 10px;
+        }
+
+        .experience-card i {
+            font-size: 2em;
+            color: #ff00ff;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            background-color: rgba(26, 26, 26, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+
+        form label {
+            margin-top: 10px;
+        }
+
+        form input, form textarea {
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            Certainly! Here’s the continuation and completion of the HTML code:
+
+```html
+            transition: border-color 0.3s ease;
+        }
+
+        form input:focus, form textarea:focus {
+            border-color: #007BFF;
+        }
+
+        form button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .social-icons {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .social-icons a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.5em;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #ff00ff;
+        }
+
+        .credentials-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .credential-card {
+            background: rgba(26, 26, 26, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            flex: 1;
+            min-width: 300px;
+            max-width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .credential-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+        }
+
+        .credentials img {
+            max-width: 100%;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#greeting">Greeting</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#resume">Experience</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#credentials">Credentials</a></li>
+                <li><a href="#contact">Let's Connect!</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="greeting" class="greeting">
+        <h1 class="typing-effect">Hi, I'm Kunal Gandhi 🚀</h1>
+        <p>2nd year Computer Science student at Wilfrid Laurier University</p>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/kunal-gandhi-9349852a0" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/kunal1018" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </section>
+    <section id="home" class="hero">
+        <img src="profile.jpg" alt="Kunal Gandhi">
+        <h1>Kunal Gandhi</h1>
+        <p>Honours Computer Science Student</p>
+        <a href="#projects" class="cta-button">View My Work</a>
+    </section>
+    <main id="projects">
+        <h1>Projects</h1>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="project1-thumbnail.jpg" alt="Project 1">
+                <h2>Project 1</h2>
+                <p>Brief description of Project 1.</p>
+                <a href="#project1" class="modal-link">Read More</a>
+            </div>
+            <div class="project-card">
+                <img src="portfolio-thumbnail.jpg" alt="Portfolio Project">
+                <h2>Personal Portfolio</h2>
+                <p>Designed and developed my personal portfolio website to showcase my projects, skills, and credentials. Built with HTML, CSS, and JavaScript, and hosted on GitHub Pages.</p>
+                <a href="https://kunal1018.github.io" target="_blank" class="cta-button">View Portfolio</a>
+            </div>
+        </div>
+    </main>
+    <main id="resume">
+        <h1>Experience</h1>
+        <div class="experience-grid">
+            <div class="experience-card">
+                <h2><i class="fas fa-bullhorn"></i> Fundraiser Lead | Public Outreach | NDP Campaign</h2>
+                <p>Led outreach campaigns targeting new NDP members ahead of the October 19th, 2024 leadership race in British Columbia.</p>
+                <p>Developed and executed engagement strategies to mobilize support and increase participation in the upcoming election.</p>
+                <p>Coordinated with regional teams to ensure consistent messaging and effective communication across all channels.</p>
+                <p>Monitored and adjusted outreach efforts based on member feedback and engagement metrics to optimize campaign impact.</p>
+            </div>
+            <div class="experience-card">
+                <h2><i class="fas fa-users"></i> Director of Outreach | Virtual Reality Laurier</h2>
+                <p>Established and managed relationships with speakers and external stakeholders to support club initiatives.</p>
+                <p>Developed and implemented outreach strategies to increase the club's visibility and engagement.</p>
+                <p>Represented the club in external forums, fostering connections with relevant organizations.</p>
+                <p>Facilitated collaborations to support and enhance the club's objectives.</p>
+            </div>
+            <div class="experience-card">
+                <h2><i class="fas fa-home"></i> Administrative Assistant - Airbnb</h2>
+                <p>Managed AirBnB properties, handling bookings, customer service, and coordination with maintenance teams to ensure guest satisfaction and property upkeep.</p>
+                <p>Implemented pricing strategies and optimized listings to maximize occupancy rates.</p>
+                <p>Processed invoices for payment using accounting software applications.</p>
+                <p>Developed administrative processes to achieve organizational objectives and improve office efficiency.</p>
+            </div>
+            <div class="experience-card">
+                <h2><i class="fas fa-hands-helping"></i> Volunteer | Hack the 6ix</h2>
+                <p>Supported event logistics and participant coordination during one of Toronto's largest hackathons.</p>
+                <p>Assisted in managing event registration, troubleshooting technical issues, and providing on-site support to ensure a seamless experience for over [number] participants.</p>
+                <p>Collaborated with organizing teams to facilitate workshops and networking sessions, contributing to the event's success and positive participant feedback.</p>
+            </div>
+            <div class="experience-card">
+                <h2><i class="fas fa-building"></i> Volunteer - Downtown Hamilton BIA</h2>
+                <p>Facilitated direct communication with community members to enhance the relationship between Hamilton citizens and the city.</p>
+                <p>Aimed to improve communal relationships and effectively address local concerns.</p>
+            </div>
+            <div class="experience-card">
+                <h2><i class="fas fa-store"></i> Retail Sales Associate - Marshalls/HomeSense</h2>
+                <p>Stocked shelves with merchandise according to company standards.</p>
+                <p>Provided excellent customer service by responding to customer questions or issues regarding product features and benefits.</p>
+                <p>Handled price checks, merchandise transfers and fitting room returns to keep store orderly and efficient.</p>
+            </div>
+        </div>
+    </main>
+    <main id="about">
+        <h1>About Me</h1>
+        <div class="about-card">
+            <p>I am a dedicated Honours Computer Science student at Wilfrid Laurier University with a blend of technical innovation, software development, and a keen interest in finance and economics. My diverse experiences range from sustainable agriculture practices to property management and administrative roles. Proficient in Python, Java, HTML, CSS, JavaScript, and Excel. I have used BBEdit, Eclipse, and VSCode on top of Excel. I possess strong leadership, communication, problem-solving, and time management skills. I aim to leverage my skills to drive innovation and efficiency within the tech industry.</p>
+        </div>
+        <section class="skills-education">
+            <div class="skills-card">
+                <h2>Skills</h2>
+                <ul>
+                    <li>Programming Languages: Python, HTML, CSS, JavaScript, Java</li>
+                    <li>Software: Excel, BBEdit, Eclipse, VSCode</li>
+                    <li>Other Skills: Leadership, Communication, Problem-Solving, Time Management</li>
+                </ul>
+            </div>
+            <div class="education-card">
+                <h2>Education</h2>
+                <p>Wilfrid Laurier University<br>Honours Bachelor of Computer Science</p>
+            </div>
+        </section>
+    </main>
+    <main id="credentials">
+                <h1>Credentials</h1>
+        <div class="credentials-grid">
+            <section class="credential-card">
+                <h2 class="credentials-title"><a href="data_analytics_certificate.pdf" target="_blank">Data Analytics - IBM</a></h2>
+                <img src="data_analytics_certificate.png" alt="Data Analytics Certificate">
+            </section>
+            <section class="credential-card">
+                <h2 class="credentials-title"><a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/KPMG%20in%20Canada/bNotYLkg7a9SK42vB_KPMG%20in%20Canada_Qr4GaG6gujGTYyGta_1713666524381_completion_certificate.pdf" target="_blank">KPMG Job Simulation</a></h2>
+                <img src="KPMG_certificate.png" alt="KPMG Certificate">
+            </section>
+            <section class="credential-card">
+                <h2 class="credentials-title"><a href="https://freecodecamp.org/certification/fcc2e85812d-6c70-46fc-825a-8b1195a87fa9/responsive-web-design" target="_blank">Responsive Web Design - freeCodeCamp</a></h2>
+                <img src="responsive_web_design_certificate.png" alt="Responsive Web Design Certificate">
+            </section>
+        </div>
+    </main>
+    <main id="contact">
+        <h1>Let's Connect!</h1>
+        <form action="mailto:kunalgandhi182005@gmail.com, gand1546@mylaurier.ca" method="post" enctype="text/plain">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Send</button>
+        </form>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/kunal-gandhi-9349852a0" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/kunal1018" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </main>
+    <script>
+        particlesJS('particles-js',
+        {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = `slideInRight 1s forwards`;
+                } else {
+                    entry.target.style.animation = `none`;
+                }
+            });
+        });
+
+        document.querySelectorAll('section, main').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
